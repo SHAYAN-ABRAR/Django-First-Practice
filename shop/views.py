@@ -6,5 +6,5 @@ def home(request):
 def Products(request):
     return HttpResponse("<h1>SHOP Products Page!</h1>") 
     
-
-# Create your views here.
+def product_list(request):
+    return render(request, 'shop/product_list.html')

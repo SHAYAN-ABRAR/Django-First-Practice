@@ -24,4 +24,7 @@ def article_by_year(request, year):
 
 def article_detail(request, **kwargs):
     return HttpResponse(f"<h1>BLOG Article Detail Page from {kwargs}!</h1>")
+
+def post_list(request):
+    return render(request, 'blog/post_list.html')
     
