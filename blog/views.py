@@ -61,6 +61,8 @@ def blog_details(request):
         "comments": [
             {"user": "Alice", "comment": "Great post!", "date": datetime.now()},
             {"user": "Bob", "comment": "Very informative.", "date": datetime.now()}
-        ]
+        ],
+        "price": 10,
+        "number": 7,
     }
     return render(request, 'blog/post_list.html', {"post": context})

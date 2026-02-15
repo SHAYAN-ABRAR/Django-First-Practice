@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load mathfilters %}
 {% block title %}Blog Post List{% endblock %}
 
 {% block content %}
@@ -13,6 +14,19 @@
     <p><b>Title(Word Count)</b>: {{ post.title|wordcount }}</p>
     <p><b>Title(Length)</b>: {{ post.title|length }}</p>
     <p><b>Title(Line break)</b>: {{ post.title|linebreaks }}</p>
+    <hr>
+    <p><b>Price</b>: {{ post.price }}</p>
+    <p><b>Price(+5)</b>: {{ post.price|add:5 }}</p>
+    <p><b>Price(-2)</b>: {{ post.price|add:-2 }}</p>
+    <p><b>Price(*2)</b>: {{ post.price|mul:2 }}</p>
+    <p><b>Price(/2)</b>: {{ post.price|div:2 }}</p>
+    {%if post.number|divisibleby:2%}
+        <p><b>Number</b>: {{ post.number }} is even.</p>
+    {% else %}
+        <p><b>Number</b>: {{ post.number }} is odd.</p>
+    {% endif %}
+    <p><b>Number</b>: {{ post.number }}</p>
+
 
     {% endblock %}
 
