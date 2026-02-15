@@ -5,6 +5,7 @@
 {% block content %}
     <h1>Blog Posts</h1>
     <p>Here are some of my recent blog posts:</p>
+    {%comment%} Character Filters {% endcomment %}
     <p><b>Title(Normal)</b>: {{ post.title }}</p>
     <p><b>Title(Uppercase)</b>: {{ post.title|upper }}</p>
     <p><b>Title(Lowercase)</b>: {{ post.title|lower }}</p>
@@ -15,6 +16,7 @@
     <p><b>Title(Length)</b>: {{ post.title|length }}</p>
     <p><b>Title(Line break)</b>: {{ post.title|linebreaks }}</p>
     <hr>
+    {%comment%} Number Filters {% endcomment %}
     <p><b>Price</b>: {{ post.price }}</p>
     <p><b>Price(+5)</b>: {{ post.price|add:5 }}</p>
     <p><b>Price(-2)</b>: {{ post.price|add:-2 }}</p>
@@ -26,6 +28,15 @@
         <p><b>Number</b>: {{ post.number }} is odd.</p>
     {% endif %}
     <p><b>Number</b>: {{ post.number }}</p>
+    <hr>
+    {%comment%} List Filters {% endcomment %}
+    <p><b>Tags</b>: {{ post.tags }}</p>
+    <p><b> First Tag</b>: {{ post.tags|first }}</p>
+    <p><b> Last Tag</b>: {{ post.tags|last }}</p>
+    <p><b> Total Tags</b>: {{ post.tags|length }}</p>
+    <p><b> Slice(First 2)</b>: {{ post.tags|slice:":2" }}</p>
+    <p><b> Join Tags</b>: {{ post.tags|join:", " }}</p>
+    <hr>
 
 
     {% endblock %}
