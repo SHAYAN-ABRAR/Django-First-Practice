@@ -12,4 +12,5 @@ urlpatterns = [
     re_path(r'^article/(?P<year>[0-9]{4})/$',views.article_by_year, name='article_by_year'),
     path("article/<int:year>/<int:month>/", views.article_detail, name="article_detail"),
     path("post_list/", views.post_list, name="post_list"),
+    path("blog_details/", views.blog_details, name="blog_details"),
 ]

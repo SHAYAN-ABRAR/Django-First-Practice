@@ -4,4 +4,17 @@
 {% block content %}
     <h1>Blog Posts</h1>
     <p>Here are some of my recent blog posts:</p>
-{% endblock %}
+    <p><b>Title(Normal)</b>: {{ post.title }}</p>
+    <p><b>Title(Uppercase)</b>: {{ post.title|upper }}</p>
+    <p><b>Title(Lowercase)</b>: {{ post.title|lower }}</p>
+    <p><b>Title(Titlecase)</b>: {{ post.title|title }}</p>
+    <p><b>Title(Truncated to 10 chars)</b>: {{ post.title|truncatechars:10 }}</p>
+    <p><b>Title(TruncateWord)</b>: {{ post.title|truncatewords:3 }}</p>
+    <p><b>Title(Word Count)</b>: {{ post.title|wordcount }}</p>
+    <p><b>Title(Length)</b>: {{ post.title|length }}</p>
+    <p><b>Title(Line break)</b>: {{ post.title|linebreaks }}</p>
+
+    {% endblock %}
+
+
+    

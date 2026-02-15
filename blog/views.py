@@ -1,6 +1,9 @@
 from calendar import month
+from multiprocessing import context
+from urllib import request
 from django.shortcuts import render
 from django.http import HttpResponse
+from datetime import datetime
 
 def home(request):
     return HttpResponse("<h1>BLOG Home Page!</h1>")
@@ -27,4 +30,37 @@ def article_detail(request, **kwargs):
 
 def post_list(request):
     return render(request, 'blog/post_list.html')
-    
+
+# DICTIONARY EXAMPLE
+# class user:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+# def profile(request):
+#     context = {
+#         "name": "Alice",
+#         "age": 30,
+#         "skills": ["Django", "Python", "JavaScript"],
+#         "user": user("Alice", 30),
+#         "blog":{
+#             "title": "Django Development",
+#             "content": "A blog about Django development.",
+#             "created_at": datetime.now()
+#         },
+#         "empty_value": None
+#     }
+#     return render(request, 'blog/home.html', context)
+
+def blog_details(request):
+    context = {
+        "title": "My First Blog Post",
+        "author": "John Doe",
+        "content": "This is the content of my first blog post.",
+        "published_date": datetime.now(),
+        "tags": ["Django", "Python", "Web Development"],
+        "comments": [
+            {"user": "Alice", "comment": "Great post!", "date": datetime.now()},
+            {"user": "Bob", "comment": "Very informative.", "date": datetime.now()}
+        ]
+    }
+    return render(request, 'blog/post_list.html', {"post": context})
