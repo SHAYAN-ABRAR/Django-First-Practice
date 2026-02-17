@@ -51,12 +51,19 @@ def post_list(request):
 #     }
 #     return render(request, 'blog/home.html', context)
 
-def blog_details(request):
+def post_list(request):
+    blogs = [
+        {"title": "First Blog Post", "is_featured": True, "author": "Shayan Abrar"},
+        {"title": "Second Blog Post", "is_featured": False, "author": ""},
+        {"title": "Third Blog Post", "is_featured": False, "author": "Ratul"},
+    ]
     context = {
+        "blogs": blogs,
         "title": "My First Blog Post",
         "author": "John Doe",
         "content": "This is the content of my first blog post.",
-        "published_date": datetime.now(),
+        "today": datetime.now(),
+        "html_code": "<h1>This is a paragraph of HTML code.</h1>",
         "tags": ["Django", "Python", "Web Development"],
         "comments": [
             {"user": "Alice", "comment": "Great post!", "date": datetime.now()},

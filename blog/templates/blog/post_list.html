@@ -37,6 +37,14 @@
     <p><b> Slice(First 2)</b>: {{ post.tags|slice:":2" }}</p>
     <p><b> Join Tags</b>: {{ post.tags|join:", " }}</p>
     <hr>
+    {%comment%} If-Else Logic {% endcomment %}
+    <p><b>Today's date:</b> {{post.today}}</p>
+    {% if post.blogs.1.is_featured %}
+        <p><b>Featured Blog:</b> {{ post.blogs.1.title }} by {{ post.blogs.1.author }}</p>
+    {% else %}
+        <p><b>No featured blog: {{ post.blogs.1.title }} </b></p>
+    {% endif %}
+
 
 
     {% endblock %}
