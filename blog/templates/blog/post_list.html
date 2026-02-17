@@ -61,6 +61,19 @@
         <p><b>Total Blogs:</b> {{ total_blogs }}</p>
     {% endwith %}
 
+    {%comment%} Cycle {% endcomment %}
+    <h2>Blogs in Table</h2>
+    <table border="1" cellpadding="5" cellspacing="0">
+        {% for blog in post.blogs %}
+        <tr style="background-color: {% cycle 'lightblue' 'lightgray' %};">
+            <td><b>{{ blog.title }}</b></td>
+            <td>{{ blog.author }}</td>
+            <td>{% if blog.is_featured %}Featured{% else %}Regular{% endif %}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
 
     {% endblock %}
 
