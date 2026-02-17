@@ -45,6 +45,17 @@
         <p><b>No featured blog: {{ post.blogs.1.title }} </b></p>
     {% endif %}
 
+    {%comment%} For Loop practice {% endcomment %}
+    <ul>
+        {% for blog in post.blogs %}
+        <li>
+            {{ forloop.counter }}. <b>{{ blog.title }}</b> by {{ blog.author }} {% if blog.is_featured %}(Featured){% endif %}
+            {% empty %}
+            <p>No blogs available.</p>
+        </li>
+        {% endfor %}
+    </ul>
+
 
 
     {% endblock %}
