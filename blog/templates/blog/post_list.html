@@ -56,6 +56,10 @@
         {% endfor %}
     </ul>
 
+    {%comment%} With Tag {% endcomment %}
+    {% with total_blogs=post.blogs|length %}
+        <p><b>Total Blogs:</b> {{ total_blogs }}</p>
+    {% endwith %}
 
 
     {% endblock %}
